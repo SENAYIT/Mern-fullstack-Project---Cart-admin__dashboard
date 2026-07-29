@@ -66,13 +66,14 @@ export async function createEmployer(prevState: State, formData: FormData) {
     };
   }
   // Prepare data for insertion into the database
-  const { name, image, email, phoneNumber, password } = validatedFields.data;
+  const { name, image_url, email, phoneNumber, password } =
+    validatedFields.data;
   const date = new Date().toISOString().split("T")[0];
 
   // Insert data into the database
   try {
     console.log("employee created Successfull");
-    const createdData = `created employer data is : "/n" name: ${name} , image:${image}, email:${email}, phoneNumber:${phoneNumber}, password:${password}, data:${date}`;
+    const createdData = `created employer data is : "/n" name: ${name} , image:${image_url}, email:${email}, phoneNumber:${phoneNumber}, password:${password}, data:${date}`;
     console.log(createdData);
   } catch (error) {
     // If a database error occurs, return a more specific error.
@@ -99,7 +100,7 @@ export async function updateEmployer(
   // Validate form fields using Zod
   const validatedFields = UpdateEmployer.safeParse({
     name: formData.get("name"),
-    image: formData.get("image") || undefined,
+    image_url: formData.get("image_url") || undefined,
     email: formData.get("email"),
     phoneNumber: formData.get("phoneNumber"),
     password: formData.get("password"),
@@ -112,7 +113,8 @@ export async function updateEmployer(
     };
   }
   // Prepare data for insertion into the database
-  const { name, image_url, email, phoneNumber, password } = validatedFields.data;
+  const { name, image_url, email, phoneNumber, password } =
+    validatedFields.data;
   const date = new Date().toISOString().split("T")[0];
 
   // Insert data into the database

@@ -1,6 +1,6 @@
 import { employers } from "./placeholder-data";
 
-import { BASE_URL } from "@/lib/api";
+// import { BASE_URL } from "@/lib/api";
 
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredEmployers(

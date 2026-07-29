@@ -16,7 +16,7 @@ import {
 
 export default function EditEmployerForm({ employer }: { employer: Employer }) {
   const initialState: State = { message: null, errors: {} };
-  const updateEmployerWithId = updateEmployer.bind(null, employer.id);
+  const updateEmployerWithId = updateEmployer.bind(null, employer._id);
   const [file, setFile] = useState<File | null>(null);
 
   const [state, formAction] = useActionState(
