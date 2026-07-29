@@ -11,12 +11,12 @@ export async function fetchFilteredEmployers(
 
   try {
     // const response = await fetch("http://localhost:4000/api/customers/");
-    const response = await fetch(`${BASE_URL}/api/customers/`);
+    // const response = await fetch(`${BASE_URL}/api/customers/`);
 
-    const resdata = await response.json();
+    // const resdata = await response.json();
 
-    console.log(resdata?.data);
-    const employers = resdata?.data;
+    // console.log(resdata?.data);
+    // const employers = resdata?.data;
 
     const employees = employers.filter((employee) =>
       query
