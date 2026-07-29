@@ -1,5 +1,6 @@
 import { employers } from "./placeholder-data";
-// import { baseURL } from "./baseUrl";
+
+import { BASE_URL } from "@/lib/api";
 
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredEmployers(
@@ -9,13 +10,13 @@ export async function fetchFilteredEmployers(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
-    // // const response = await fetch("http://localhost:4000/api/customers/");
-    // const response = await fetch(`${baseURL}/api/customers/`);
+    // const response = await fetch("http://localhost:4000/api/customers/");
+    const response = await fetch(`${BASE_URL}/api/customers/`);
 
-    // const resdata = await response.json();
+    const resdata = await response.json();
 
-    // console.log(resdata?.data);
-    // const employers = resdata?.data;
+    console.log(resdata?.data);
+    const employers = resdata?.data;
 
     const employees = employers.filter((employee) =>
       query
