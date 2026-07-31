@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/ui/button";
 import SpanStar from "@/ui/spanStar";
-import { Employer } from "@/lib/employers/definitions";
-
-import { updateEmployer, State } from "@/lib/employers/actions";
 import { useActionState, useState } from "react";
+
+import { Employer } from "@/lib/employers/definitions";
+import { updateEmployer } from "@/lib/employers/update_action";
+import { State } from "@/lib/employers/definitions";
+
 import {
   UserCircleIcon,
   EnvelopeIcon,
@@ -15,22 +17,27 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function EditEmployerForm({ employer }: { employer: Employer }) {
-  const initialState: State = { message: null, errors: {} };
+  const { name, profile_photo, email, phoneNumber, password } = employer;
+  const initialEmpValue = {
+    name: name,
+    email: email,
+    phoneNumber: phoneNumber,
+    password: password,
+  };
+  const initialState: State = {
+    success: false,
+    message: null,
+    errors: {},
+    values: initialEmpValue,
+  };
+
   const updateEmployerWithId = updateEmployer.bind(null, employer._id);
   const [file, setFile] = useState<File | null>(null);
 
-  const [state, formAction] = useActionState(
+  const [state, formAction] = useActionState<State, FormData>(
     updateEmployerWithId,
     initialState,
   );
-  // const handleFile = (e) => {
-  //   const selectedFile = e.target.files?.[0];
-  //   if (selectedFile) {
-  //     setFile(selectedFile);
-  //   }
-  // };
-
-  const { name, image_url, email, phoneNumber, password } = employer;
 
   return (
     <form action={formAction}>
@@ -51,7 +58,7 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
                 id="name"
                 name="name"
                 type="text"
-                defaultValue={name}
+                defaultValue={state.values?.name ?? ""}
                 placeholder="please enter name"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="name-error"
@@ -78,7 +85,7 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
                 id="email"
                 name="email"
                 type="text"
-                defaultValue={email}
+                defaultValue={state.values?.email ?? ""}
                 placeholder="please enter email"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="email-error"
@@ -108,7 +115,7 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
                 id="phoneNumber"
                 name="phoneNumber"
                 type="text"
-                defaultValue={phoneNumber}
+                defaultValue={state.values?.phoneNumber ?? ""}
                 placeholder="please enter phone number"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="phoneNumber-error"
@@ -136,7 +143,7 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
                 id="password"
                 name="password"
                 type="password"
-                defaultValue={password}
+                defaultValue={state.values?.password ?? ""}
                 placeholder="please enter password"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="password-error"
@@ -154,13 +161,16 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
         </div>
         {/* Employer Image  */}
         <div className="mb-4">
-          <label htmlFor="image" className="mb-2 block text-sm font-medium">
-            Upload Image
+          <label
+            htmlFor="profile_photo"
+            className="mb-2 block text-sm font-medium"
+          >
+            Upload Profile Photo
           </label>
           <div className="flex gap-2 items-center">
             {file && (
               <Image
-                src={file ? URL.createObjectURL(file) : image_url}
+                src={file ? profile_photo : URL.createObjectURL(file)}
                 alt="Preview"
                 height={20}
                 width={20}
@@ -168,8 +178,8 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
               />
             )}
             <input
-              id="image"
-              name="image"
+              id="profile_photo"
+              name="profile_photo"
               type="file"
               accept="image/*"
               onChange={(e) => {
@@ -179,12 +189,12 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
                 }
               }}
               className="cursor-pointer text-gray-600 focus:ring-2"
-              aria-describedby="image-error"
+              aria-describedby="profile_photo-error"
             />
           </div>
-          <div id="image-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.image_url &&
-              state.errors.image_url.map((error: string) => (
+          <div id="profile_photo-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.profile_photo &&
+              state.errors.profile_photo.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -208,7 +218,7 @@ export default function EditEmployerForm({ employer }: { employer: Employer }) {
         >
           Cancel
         </Link>
-        <Button type="submit">Edit Invoice</Button>
+        <Button type="submit">Edit Employee</Button>
       </div>
     </form>
   );

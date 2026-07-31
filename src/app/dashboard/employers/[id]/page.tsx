@@ -1,4 +1,4 @@
-import { fetchEmployeeById } from "@/lib/employers/fetchData";
+import { fetchEmployeeById } from "@/lib/employers/fetchEmployee_byId";
 import { notFound } from "next/navigation";
 
 export default async function DetailHomePage(props: {

@@ -4,7 +4,7 @@ import { CreateEmployer } from "@/ui/employers/buttons";
 import Loading from "./loading";
 import EmployersTable from "@/ui/employers/table";
 
-import { fetchEmployersPages } from "@/lib/employers/fetchData";
+import { fetchEmployersPages } from "@/lib/employers/fetchEmployers_page";
 import { lusitana } from "@/ui/fonts";
 
 import Pagination from "@/ui/pagination";

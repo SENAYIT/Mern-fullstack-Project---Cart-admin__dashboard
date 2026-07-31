@@ -1,6 +1,6 @@
 import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { deleteEmployer } from "@/lib/employers/actions";
+import { deleteEmployer } from "@/lib/employers/delete_action";
 
 export function CreateEmployer() {
   return (

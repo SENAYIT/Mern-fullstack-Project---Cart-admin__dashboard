@@ -4,7 +4,9 @@ import Link from "next/link";
 import { Button } from "@/ui/button";
 import SpanStar from "@/ui/spanStar";
 import { useActionState, useState } from "react";
-import { createEmployer, State } from "@/lib/employers/actions";
+import { createEmployer } from "@/lib/employers/create_action";
+import { State } from "@/lib/employers/definitions";
+
 import {
   UserCircleIcon,
   EnvelopeIcon,
@@ -13,8 +15,16 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Form() {
-  const initialState: State = { message: null, errors: {} };
-  const [state, formAction] = useActionState(createEmployer, initialState);
+  const initialState: State = {
+    success: false,
+    message: null,
+    errors: {},
+    values: {},
+  };
+  const [state, formAction] = useActionState<State, FormData>(
+    createEmployer,
+    initialState,
+  );
   const [file, setFile] = useState<File | null>(null);
 
   return (
@@ -36,6 +46,7 @@ export default function Form() {
                 id="name"
                 name="name"
                 type="text"
+                defaultValue={state.values?.name ?? ""}
                 placeholder="please enter name"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="name-error"
@@ -44,7 +55,8 @@ export default function Form() {
             </div>
           </div>
           <div id="name-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.name && state.errors.name.map((error: string) => (
+            {state.errors?.name &&
+              state.errors.name.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -64,6 +76,7 @@ export default function Form() {
                 id="email"
                 name="email"
                 type="text"
+                defaultValue={state.values?.email ?? ""}
                 placeholder="please enter email"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="email-error"
@@ -73,7 +86,8 @@ export default function Form() {
             </div>
           </div>
           <div id="email-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.email && state.errors.email.map((error: string) => (
+            {state.errors?.email &&
+              state.errors.email.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -96,6 +110,7 @@ export default function Form() {
                 id="phoneNumber"
                 name="phoneNumber"
                 type="text"
+                defaultValue={state.values?.phoneNumber ?? ""}
                 placeholder="please enter phone number"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="phoneNumber-error"
@@ -104,7 +119,8 @@ export default function Form() {
             </div>
           </div>
           <div id="phoneNumber-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.phoneNumber && state.errors.phoneNumber.map((error: string) => (
+            {state.errors?.phoneNumber &&
+              state.errors.phoneNumber.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -123,6 +139,7 @@ export default function Form() {
                 id="password"
                 name="password"
                 type="password"
+                defaultValue={state.values?.password ?? ""}
                 placeholder="please enter password"
                 className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="password-error"
@@ -131,18 +148,21 @@ export default function Form() {
             </div>
           </div>
           <div id="password-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.password &&  state.errors.password.map((error: string) => (
+            {state.errors?.password &&
+              state.errors.password.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
-            ))}
-          
+              ))}
           </div>
         </div>
         {/* Employer Image  */}
         <div className="mb-4">
-          <label htmlFor="image" className="mb-2 block text-sm font-medium">
-            Upload Image
+          <label
+            htmlFor="profile_photo"
+            className="mb-2 block text-sm font-medium"
+          >
+            Upload Profile Photo
           </label>
           <div className="flex gap-2 items-center">
             {file && (
@@ -155,8 +175,8 @@ export default function Form() {
               />
             )}
             <input
-              id="image"
-              name="image"
+              id="profile_photo"
+              name="profile_photo"
               type="file"
               accept="image/*"
               onChange={(e) => {
@@ -167,12 +187,12 @@ export default function Form() {
               }}
               // defaultValue=""
               className="cursor-pointer text-gray-600 focus:ring-2"
-              aria-describedby="image-error"
+              aria-describedby="profile_photo-error"
             />
           </div>
-          <div id="image-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.image_url &&
-              state.errors.image_url.map((error: string) => (
+          <div id="profile_photo-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.profile_photo &&
+              state.errors.profile_photo.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -194,7 +214,7 @@ export default function Form() {
         >
           Cancel
         </Link>
-        <Button type="submit">Create Invoice</Button>
+        <Button type="submit">Create Employer</Button>
       </div>
     </form>
   );

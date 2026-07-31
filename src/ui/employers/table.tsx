@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { DeleteEmployer, DetailEmployer, UpdateEmployer } from "./buttons";
-import { fetchFilteredEmployers } from "@/lib/employers/fetchData";
+import { fetchFilteredEmployers } from "@/lib/employers/fetchFilteredEmployers";
 
 export default async function EmployersTable({
   query,
@@ -36,7 +36,7 @@ export default async function EmployersTable({
                         <div className="mb-2 flex items-center">
                           <div className="flex items-center gap-3">
                             <Image
-                              src={employer.image_url}
+                              src={employer.profile_photo}
                               className="rounded-full"
                               alt={`${employer.name}'s profile picture`}
                               width={28}
@@ -80,7 +80,7 @@ export default async function EmployersTable({
                       <td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
                         <div className="flex items-center gap-3">
                           <Image
-                            src={employer.image_url}
+                            src={employer.profile_photo}
                             className="rounded-full"
                             alt={`${employer.name}'s profile picture`}
                             width={28}
