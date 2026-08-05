@@ -1,0 +1,146 @@
+import { Order } from "@/lib/orders/definitions";
+
+export const orders: Order[] = [
+  // Pending
+  {
+    _id: "ord-001",
+    customer: "John Smith (cust-001)",
+    products: [
+      { product: "prod-001", quantity: 2 },
+      { product: "prod-002", quantity: 1 },
+    ],
+    totalPrice: 159.97,
+    payment: "Pending",
+    status: "pending",
+    createdAt: "2026-07-31T10:00:00.000Z",
+    updatedAt: "2026-07-31T10:00:00.000Z",
+  },
+  {
+    _id: "ord-002",
+    customer: "Emma Johnson (cust-002)",
+    products: [{ product: "prod-003", quantity: 3 }],
+    totalPrice: 89.99,
+    payment: "Pending",
+    status: "pending",
+    createdAt: "2026-07-31T11:30:00.000Z",
+    updatedAt: "2026-07-31T11:30:00.000Z",
+  },
+  {
+    _id: "ord-003",
+    customer: "Michael Brown (cust-003)",
+    products: [
+      { product: "prod-004", quantity: 1 },
+      { product: "prod-005", quantity: 2 },
+    ],
+    totalPrice: 120.5,
+    payment: "Pending",
+    status: "pending",
+    createdAt: "2026-07-31T12:45:00.000Z",
+    updatedAt: "2026-07-31T12:45:00.000Z",
+  },
+
+  // Processing
+  {
+    _id: "ord-004",
+    customer: "Sophia Davis (cust-004)",
+    products: [{ product: "prod-001", quantity: 4 }],
+    totalPrice: 240.0,
+    payment: "Paid",
+    status: "pending",
+    createdAt: "2026-08-01T08:15:00.000Z",
+    updatedAt: "2026-08-01T08:15:00.000Z",
+  },
+  {
+    _id: "ord-005",
+    customer: "James Wilson (cust-005)",
+    products: [
+      { product: "prod-002", quantity: 2 },
+      { product: "prod-003", quantity: 1 },
+    ],
+    totalPrice: 175.75,
+    payment: "Paid",
+    status: "pending",
+    createdAt: "2026-08-01T09:20:00.000Z",
+    updatedAt: "2026-08-01T09:20:00.000Z",
+  },
+  {
+    _id: "ord-006",
+    customer: "Olivia Miller (cust-006)",
+    products: [{ product: "prod-004", quantity: 5 }],
+    totalPrice: 325.5,
+    payment: "Paid",
+    status: "pending",
+    createdAt: "2026-08-01T10:40:00.000Z",
+    updatedAt: "2026-08-01T10:40:00.000Z",
+  },
+
+  // Completed
+  {
+    _id: "ord-007",
+    customer: "William Moore (cust-007)",
+    products: [{ product: "prod-005", quantity: 1 }],
+    totalPrice: 59.99,
+    payment: "Paid",
+    status: "completed",
+    createdAt: "2026-08-01T11:00:00.000Z",
+    updatedAt: "2026-08-01T11:00:00.000Z",
+  },
+  {
+    _id: "ord-008",
+    customer: "Ava Taylor (cust-008)",
+    products: [
+      { product: "prod-001", quantity: 3 },
+      { product: "prod-002", quantity: 2 },
+    ],
+    totalPrice: 280.25,
+    payment: "Paid",
+    status: "completed",
+    createdAt: "2026-08-01T13:15:00.000Z",
+    updatedAt: "2026-08-01T13:15:00.000Z",
+  },
+  {
+    _id: "ord-009",
+    customer: "Benjamin Anderson (cust-009)",
+    products: [{ product: "prod-003", quantity: 2 }],
+    totalPrice: 135.0,
+    payment: "Paid",
+    status: "completed",
+    createdAt: "2026-08-01T15:30:00.000Z",
+    updatedAt: "2026-08-01T15:30:00.000Z",
+  },
+
+  // Cancelled
+  {
+    _id: "ord-010",
+    customer: "Charlotte Thomas (cust-010)",
+    products: [{ product: "prod-004", quantity: 1 }],
+    totalPrice: 49.99,
+    payment: "Not Paid",
+    status: "cancelled",
+    createdAt: "2026-08-02T08:00:00.000Z",
+    updatedAt: "2026-08-02T08:00:00.000Z",
+  },
+  {
+    _id: "ord-011",
+    customer: "Lucas Jackson (cust-011)",
+    products: [
+      { product: "prod-005", quantity: 2 },
+      { product: "prod-001", quantity: 2 },
+    ],
+    totalPrice: 210.45,
+    payment: "Paid",
+    status: "new",
+    createdAt: "2026-08-02T09:45:00.000Z",
+    updatedAt: "2026-08-02T09:45:00.000Z",
+  },
+  {
+    _id: "ord-012",
+    customer: "Mia White (cust-012)",
+    products: [{ product: "prod-002", quantity: 6 }],
+    totalPrice: 399.99,
+    payment: "Paid",
+    status: "new",
+    createdAt: "2026-08-02T11:20:00.000Z",
+    updatedAt: "2026-08-02T11:20:00.000Z",
+  },
+];

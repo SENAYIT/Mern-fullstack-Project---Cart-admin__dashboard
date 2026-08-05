@@ -1,5 +1,5 @@
-import AdminLogo from "@/ui/admin-logo";
-import LoginForm from "@/ui/login-form";
+import AdminLogo from "@/ui/commonForAll/admin-logo";
+import LoginForm from "@/ui/commonForAll/login-form";
 import { Suspense } from "react";
 
 export default function LoginPage() {

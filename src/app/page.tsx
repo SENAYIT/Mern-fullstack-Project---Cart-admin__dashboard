@@ -1,4 +1,4 @@
-import AdminLogo from "@/ui/admin-logo";
+import AdminLogo from "@/ui/commonForAll/admin-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { lusitana } from "@/ui/fonts";

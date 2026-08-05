@@ -1,6 +1,6 @@
 import Link from "next/link";
 import NavLinks from "@/ui/dashboard/nav-links";
-import AdminLogo from "@/ui/admin-logo";
+import AdminLogo from "@/ui/commonForAll/admin-logo";
 import SignOut from "./signOut";
 
 export default function SideNav() {

@@ -1,0 +1,38 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.5); Semi-transparent background */
+  background: rgba(184, 182, 182, 0.2);
+  z-index: 1000; /* Ensure overlay is on top */
+}
+
+.modal {
+  position: fixed; /* Position the modal */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the size of the modal */
+  background-color: rgb(255, 255, 255); /* Background color */
+  padding: 20px; /* Inner spacing */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  z-index: 1000; /* Make sure it's on top */
+  width: 80%; /* Optional: width of the modal */
+  max-width: 500px; /* Optional: max width */
+}
+
+.closeButton {
+  margin-top: 20px; /* Space above the button */
+  padding: 10px 15px; /* Inner spacing */
+  background-color: #007bff; /* Button color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.closeButton:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
