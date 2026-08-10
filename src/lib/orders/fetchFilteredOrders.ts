@@ -25,6 +25,8 @@ export async function fetchFilteredOrders(
       filteredOrders = filteredOrders.filter(
         (order) =>
           order.customer.toLowerCase().includes(query.toLowerCase()) ||
+          order.payment.toLowerCase().includes(query.toLowerCase()) ||
+          order.status.toLowerCase().includes(query.toLowerCase()) ||
           order._id.includes(query),
       );
     }
