@@ -32,7 +32,7 @@ export default async function AdminDetail() {
           },
           {
             label: "Password",
-            value: password,
+            value: "*************",
           },
         ]}
       />
