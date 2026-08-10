@@ -3,16 +3,17 @@ import clsx from "clsx";
 import { lusitana } from "@/ui/fonts";
 import { fetchTop_Products } from "@/lib/products/fetchTop_Products";
 import Image from "next/image";
+import SectionHeader from "./sectionHeader";
 
 export default async function TopProducts() {
   const top_Products = await fetchTop_Products();
   return (
     <div className="flex w-full flex-col md:col-span-4">
-      <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Top_Products
-      </h2>
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
-        {/* NOTE: Uncomment this code in Chapter 7 */}
+        <SectionHeader
+          title="Top Selling Products"
+          viewAllLink="/dashboard/products"
+        />
 
         <div className="bg-white px-6">
           {top_Products.map((product, i) => {
@@ -22,7 +23,7 @@ export default async function TopProducts() {
                 className={clsx(
                   "flex flex-row items-center justify-between py-4",
                   {
-                    "border-t": i !== 0,
+                    "border-t border-t-gray-200": i !== 0,
                   },
                 )}
               >
@@ -39,24 +40,25 @@ export default async function TopProducts() {
                       {product.name}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
-                      {product.price}
+                      price - $ {product.price}
                     </p>
                   </div>
                 </div>
                 <p
                   className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
                 >
-                  {product.status}
+                  {product.totalSold}
                 </p>
                 <p
-                  className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
+                  className={`${lusitana.className} truncate text-sm font-bold text-green-500 md:text-base`}
                 >
-                  {product.stock}
+                  ${(product.totalSold * product.price).toFixed(2)}
                 </p>
               </div>
             );
           })}
         </div>
+
         <div className="flex items-center pb-2 pt-6">
           <ArrowPathIcon className="h-5 w-5 text-gray-500" />
           <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>

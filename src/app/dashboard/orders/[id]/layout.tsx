@@ -22,6 +22,9 @@ export default async function StatusLayout({
     { href: "dashboard/orders", label: "Orders", active: false },
     { href: `dashboard/orders/${id}`, label: id, active: true },
     { href: `dashboard/orders/${id}/edit`, label: "edit", active: false },
+    // { href: "/", label: "Orders", active: false },
+    // { href: `dashboard/orders/${id}`, label: id, active: true },
+    // { href: `/edit`, label: "edit", active: false },
   ];
   return (
     <main>

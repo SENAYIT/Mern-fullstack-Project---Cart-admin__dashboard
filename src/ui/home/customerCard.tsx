@@ -5,19 +5,23 @@ export default function CustomerCard({
   total,
   newToday,
   growth,
+  styles = "",
 }: {
   icon: React.ReactNode;
   title: string;
   total: string;
   newToday: string;
   growth: string;
+  styles: string;
 }) {
   return (
-    <div className="rounded-xl border bg-white p-6 shadow-sm transition hover:shadow-md">
+    <div className="rounded-xl border border-gray-300 bg-white p-3 px-4 shadow-sm transition hover:shadow-md">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="rounded-lg bg-blue-100 p-3 text-blue-600">{icon}</div>
+          <div className={`rounded-lg bg-blue-100 p-3 text-white ${styles}`}>
+            {icon}
+          </div>
 
           <div>
             <h3 className="text-sm font-medium text-gray-500">{title}</h3>

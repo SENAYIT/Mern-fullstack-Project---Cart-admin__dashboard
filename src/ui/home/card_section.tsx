@@ -20,22 +20,15 @@ export default async function CardSection() {
   const productsData = await fetch_productsReport();
 
   return (
-    <section className="p-0 md:p-4">
-      <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
-        <CustomerCard
-          icon={<CurrencyDollarIcon className="h-6 w-6" />}
-          title={revenuesData.title}
-          total={revenuesData.total}
-          newToday={revenuesData.newToday}
-          growth={revenuesData.growth}
-        />
-
+    <section className="p-0 md:p-2">
+      <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-4">
         <CustomerCard
           icon={<ShoppingCartIcon className="h-6 w-6" />}
           title={ordersData.title}
           total={ordersData.total}
           newToday={ordersData.newToday}
           growth={ordersData.growth}
+          styles="bg-violet-500"
         />
         <CustomerCard
           icon={<UsersIcon className="h-6 w-6" />}
@@ -43,6 +36,7 @@ export default async function CardSection() {
           total={customersData.total}
           newToday={customersData.newToday}
           growth={customersData.growth}
+          styles="bg-green-500"
         />
         <CustomerCard
           icon={<ShoppingBagIcon className="h-6 w-6" />}
@@ -50,6 +44,16 @@ export default async function CardSection() {
           total={productsData.total}
           newToday={productsData.newToday}
           growth={productsData.growth}
+          styles="bg-blue-500"
+        />
+
+        <CustomerCard
+          icon={<CurrencyDollarIcon className="h-6 w-6" />}
+          title={revenuesData.title}
+          total={revenuesData.total}
+          newToday={revenuesData.newToday}
+          growth={revenuesData.growth}
+          styles="bg-orange-500"
         />
       </div>
     </section>

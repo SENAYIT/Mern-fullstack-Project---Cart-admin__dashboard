@@ -38,9 +38,10 @@ export default function MobileProductCard({ product }: { product: Product }) {
         </div>
       </div>
 
-      <div className="flex flex-row gap-1 items-center self-end">
-        <DeleteProduct id={product._id} />
+      <div className="flex flex-row gap-3 items-center self-end">
         <DetailProduct id={product._id} />
+
+        <DeleteProduct id={product._id} />
         <UpdateProduct id={product._id} />
       </div>
     </div>

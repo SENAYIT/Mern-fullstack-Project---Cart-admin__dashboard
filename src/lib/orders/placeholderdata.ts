@@ -146,7 +146,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-012",
-    customer: "cust-012)",
+    customer: "cust-012",
     products: [{ product: "prod-002", quantity: 6 }],
     totalPrice: 399.99,
     payment: "Paid",

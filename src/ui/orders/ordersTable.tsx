@@ -68,17 +68,20 @@ export default function OrdersTable({ orders }: { orders: Order[] }) {
               {/* {order.products} */}
               <div className="flex flex-col gap-0.5">
                 <p> product 1</p>
-                <p> product 2</p>
-                <p> ... </p>
+                <p> product 2 ...</p>
               </div>
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {order.totalPrice}
             </td>
-            <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+            <td
+              className={`whitespace-nowrap bg-white px-4 py-5 text-sm ${order.payment === "Paid" ? "text-green-500 bg-green-200" : order.payment === "Not Paid" ? "text-red-500 bg-red-200" : order.payment === "Pending" ? "text-blue-500 bg-blue-200" : "text-gray-400"}`}
+            >
               {order.payment}
             </td>
-            <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+            <td
+              className={`whitespace-nowrap bg-white px-4 py-5 text-sm ${order.status === "completed" ? "text-green-500 bg-green-200" : order.status === "cancelled" ? "text-red-500 bg-red-200" : order.status === "pending" ? "text-blue-500 bg-blue-200" : order.status === "new" ? "text-purple-500 bg-purple-200" : "text-gray-400"}`}
+            >
               {order.status}
             </td>
             {/* <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">

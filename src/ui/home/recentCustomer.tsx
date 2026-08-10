@@ -1,25 +1,28 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { lusitana } from "@/ui/fonts";
-import { fetchLowStock_Products } from "@/lib/products/fetchLowStock_Products";
 import Image from "next/image";
 import SectionHeader from "./sectionHeader";
+import { fetchRecentCustomers } from "@/lib/customers/fetchRecentCustomers";
 
-export default async function LowStockProducts() {
-  const lowStock_Products = await fetchLowStock_Products();
+export default async function RecentCustomers() {
+  const recentCustomers = await fetchRecentCustomers();
+  if (!recentCustomers) {
+    return;
+  }
   return (
     <div className="flex w-full flex-col md:col-span-4">
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
         <SectionHeader
-          title="Low Stock Products"
-          viewAllLink="/dashboard/products"
+          title="Recent Customers"
+          viewAllLink="/dashboard/customers"
         />
 
         <div className="bg-white px-6">
-          {lowStock_Products.map((product, i) => {
+          {recentCustomers?.map((customer, i) => {
             return (
               <div
-                key={product._id}
+                key={customer._id}
                 className={clsx(
                   "flex flex-row items-center justify-between py-4",
                   {
@@ -29,26 +32,26 @@ export default async function LowStockProducts() {
               >
                 <div className="flex items-center">
                   <Image
-                    src={product.image}
-                    alt={`${product.name}'s profile picture`}
+                    src={customer.profile_photo}
+                    alt={`${customer.name}'s profile picture`}
                     className="mr-4 rounded-full"
                     width={32}
                     height={32}
                   />
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
-                      {product.name}
+                      {customer.name}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
-                      {product.price}
+                      {customer.email}
                     </p>
                   </div>
                 </div>
 
                 <p
-                  className={`${lusitana.className} truncate text-sm text-red-600  font-medium md:text-base`}
+                  className={`${lusitana.className} truncate text-sm font-medium md:text-base px-1 rounded-md ${customer.status === "Active" ? "text-green-500 bg-green-200" : customer.status === "Inactive" ? "text-red-500 bg-red-200" : customer.status === "Blocked" ? "text-black-500 bg-gray-200" : customer.status === "Not-Blocked" ? "text-purple-500 bg-purple-200" : "text-gray-400"}`}
                 >
-                  {product.stock} left
+                  {customer.status}
                 </p>
               </div>
             );

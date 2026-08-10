@@ -9,6 +9,8 @@ export const customers: Customer[] = [
     email: "john.smith001@gmail.com",
     password: "123456",
     phoneNumber: "0912345001",
+    createdAt: "2026-07-31T10:00:00.000Z",
+    updatedAt: "2026-07-31T10:00:00.000Z",
     status: "Active",
   },
   {
@@ -18,6 +20,8 @@ export const customers: Customer[] = [
     email: "emma.johnson002@gmail.com",
     password: "123456",
     phoneNumber: "0912345002",
+    createdAt: "2026-07-31T10:00:00.000Z",
+    updatedAt: "2026-07-31T10:00:00.000Z",
     status: "Inactive",
   },
   {
@@ -27,6 +31,8 @@ export const customers: Customer[] = [
     email: "michael.brown003@gmail.com",
     password: "123456",
     phoneNumber: "0912345003",
+    createdAt: "2026-08-01T10:00:00.000Z",
+    updatedAt: "2026-08-01T10:00:00.000Z",
     status: "Blocked",
   },
   {
@@ -36,6 +42,8 @@ export const customers: Customer[] = [
     email: "sophia.davis004@gmail.com",
     password: "123456",
     phoneNumber: "0912345004",
+    createdAt: "2026-07-30T10:00:00.000Z",
+    updatedAt: "2026-07-30T10:00:00.000Z",
     status: "Active",
   },
   {
@@ -45,6 +53,8 @@ export const customers: Customer[] = [
     email: "james.wilson005@gmail.com",
     password: "123456",
     phoneNumber: "0912345005",
+    createdAt: "2026-08-05T10:00:00.000Z",
+    updatedAt: "2026-08-05T10:00:00.000Z",
     status: "Inactive",
   },
   {
@@ -54,6 +64,8 @@ export const customers: Customer[] = [
     email: "olivia.miller006@gmail.com",
     password: "123456",
     phoneNumber: "0912345006",
+    createdAt: "2026-08-04T10:00:00.000Z",
+    updatedAt: "2026-08-07T10:00:00.000Z",
     status: "Active",
   },
   {
@@ -63,6 +75,8 @@ export const customers: Customer[] = [
     email: "william.moore007@gmail.com",
     password: "123456",
     phoneNumber: "0912345007",
+    createdAt: "2026-08-09T10:00:00.000Z",
+    updatedAt: "2026-08-09T10:00:00.000Z",
     status: "Blocked",
   },
   {
@@ -72,6 +86,8 @@ export const customers: Customer[] = [
     email: "ava.taylor008@gmail.com",
     password: "123456",
     phoneNumber: "0912345008",
+    createdAt: "2026-08-10T10:00:00.000Z",
+    updatedAt: "2026-08-10T10:00:00.000Z",
     status: "Active",
   },
   {
@@ -81,6 +97,8 @@ export const customers: Customer[] = [
     email: "benjamin.anderson009@gmail.com",
     password: "123456",
     phoneNumber: "0912345009",
+    createdAt: "2026-08-09T10:00:00.000Z",
+    updatedAt: "2026-08-09T10:00:00.000Z",
     status: "Inactive",
   },
   {
@@ -90,6 +108,8 @@ export const customers: Customer[] = [
     email: "charlotte.thomas010@gmail.com",
     password: "123456",
     phoneNumber: "0912345010",
+    createdAt: "2026-08-04T10:00:00.000Z",
+    updatedAt: "2026-08-07T10:00:00.000Z",
     status: "Active",
   },
 

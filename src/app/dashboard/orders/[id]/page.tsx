@@ -21,7 +21,7 @@ export default async function DetailHomePage({
 
   return (
     <main>
-      <p>orders detail page for the order Id -{order._id}</p>
+      {/* <p>orders detail page for the order Id -{order._id}</p> */}
       <OrderDetail order={order} />
       {/* <OrderDetail order={order} customer={customer} products={products} /> */}
     </main>

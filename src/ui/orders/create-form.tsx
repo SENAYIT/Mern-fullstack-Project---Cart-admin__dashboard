@@ -38,6 +38,7 @@ export default function Form() {
         aria-describedby="form-error"
         className="mx-auto max-w-3xl rounded-lg bg-white p-6 shadow"
       >
+        <h1 className="font-bold mb-6 text-lg">Create Order</h1>
         <SelectCustomer state={state} />
 
         <Cart />

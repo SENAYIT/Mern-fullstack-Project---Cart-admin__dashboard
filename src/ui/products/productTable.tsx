@@ -62,7 +62,10 @@ export default function ProductTable({ products }: { products: Product[] }) {
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {product.price.toFixed(2)}
             </td>
-            <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+
+            <td
+              className={`whitespace-nowrap bg-white px-4 py-5 text-sm ${product.status === "active" ? "text-green-500 bg-green-100" : product.status === "inactive" ? "text-red-500 bg-red-200" : product.status === "low-stock" ? "text-red-900 bg-red-200" : product.status === "new" ? "text-purple-900 bg-purple-200" : "text-gray-400"}`}
+            >
               {product.status}
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
@@ -77,8 +80,9 @@ export default function ProductTable({ products }: { products: Product[] }) {
 
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               <div className="flex gap-1 items-center">
-                <UpdateProduct id={product._id} />
                 <DetailProduct id={product._id} />
+
+                <UpdateProduct id={product._id} />
                 <DeleteProduct id={product._id} />
               </div>
             </td>

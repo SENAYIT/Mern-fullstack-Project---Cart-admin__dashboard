@@ -15,8 +15,8 @@ export default async function DetailHomePage(props: {
 
   return (
     <main>
-      <h1>Product Details</h1>
-      More details about the product with ID: {product_id}
+      {/* <h1>Product Details</h1> */}
+      {/* More details about the product with ID: {product_id} */}
       <ProductDetail product={product} />
     </main>
   );

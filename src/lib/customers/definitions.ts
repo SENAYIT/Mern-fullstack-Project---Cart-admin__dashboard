@@ -11,6 +11,8 @@ export type Customer = {
   email: string;
   password: string;
   phoneNumber: string;
+  createdAt: string;
+  updatedAt: string;
   status: CustomerStatus;
 };
 
