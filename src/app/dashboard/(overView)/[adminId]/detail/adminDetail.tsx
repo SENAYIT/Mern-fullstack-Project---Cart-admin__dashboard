@@ -16,7 +16,7 @@ export default async function AdminDetail() {
       />
 
       <InfoCard
-        title="Customer Information"
+        title="Admin Information"
         items={[
           {
             label: "Email",
