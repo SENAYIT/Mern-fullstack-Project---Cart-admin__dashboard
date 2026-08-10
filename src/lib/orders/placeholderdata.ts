@@ -4,7 +4,7 @@ export const orders: Order[] = [
   // Pending
   {
     _id: "ord-001",
-    customer: "John Smith (cust-001)",
+    customer: "cust-001",
     products: [
       { product: "prod-001", quantity: 2 },
       { product: "prod-002", quantity: 1 },
@@ -17,7 +17,18 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-002",
-    customer: "Emma Johnson (cust-002)",
+    customer: "cust-001",
+    products: [{ product: "prod-003", quantity: 3 }],
+    totalPrice: 89.99,
+    payment: "Pending",
+    status: "pending",
+    createdAt: "2026-07-31T11:30:00.000Z",
+    updatedAt: "2026-07-31T11:30:00.000Z",
+  },
+
+  {
+    _id: "ord-013",
+    customer: "cust-002",
     products: [{ product: "prod-003", quantity: 3 }],
     totalPrice: 89.99,
     payment: "Pending",
@@ -27,7 +38,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-003",
-    customer: "Michael Brown (cust-003)",
+    customer: "cust-003",
     products: [
       { product: "prod-004", quantity: 1 },
       { product: "prod-005", quantity: 2 },
@@ -42,7 +53,7 @@ export const orders: Order[] = [
   // Processing
   {
     _id: "ord-004",
-    customer: "Sophia Davis (cust-004)",
+    customer: "cust-004",
     products: [{ product: "prod-001", quantity: 4 }],
     totalPrice: 240.0,
     payment: "Paid",
@@ -52,7 +63,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-005",
-    customer: "James Wilson (cust-005)",
+    customer: "cust-005",
     products: [
       { product: "prod-002", quantity: 2 },
       { product: "prod-003", quantity: 1 },
@@ -65,7 +76,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-006",
-    customer: "Olivia Miller (cust-006)",
+    customer: "cust-006",
     products: [{ product: "prod-004", quantity: 5 }],
     totalPrice: 325.5,
     payment: "Paid",
@@ -77,7 +88,7 @@ export const orders: Order[] = [
   // Completed
   {
     _id: "ord-007",
-    customer: "William Moore (cust-007)",
+    customer: "cust-007",
     products: [{ product: "prod-005", quantity: 1 }],
     totalPrice: 59.99,
     payment: "Paid",
@@ -87,7 +98,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-008",
-    customer: "Ava Taylor (cust-008)",
+    customer: "cust-008",
     products: [
       { product: "prod-001", quantity: 3 },
       { product: "prod-002", quantity: 2 },
@@ -100,7 +111,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-009",
-    customer: "Benjamin Anderson (cust-009)",
+    customer: "cust-009",
     products: [{ product: "prod-003", quantity: 2 }],
     totalPrice: 135.0,
     payment: "Paid",
@@ -112,7 +123,7 @@ export const orders: Order[] = [
   // Cancelled
   {
     _id: "ord-010",
-    customer: "Charlotte Thomas (cust-010)",
+    customer: "cust-010",
     products: [{ product: "prod-004", quantity: 1 }],
     totalPrice: 49.99,
     payment: "Not Paid",
@@ -122,7 +133,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-011",
-    customer: "Lucas Jackson (cust-011)",
+    customer: "cust-011",
     products: [
       { product: "prod-005", quantity: 2 },
       { product: "prod-001", quantity: 2 },
@@ -135,7 +146,7 @@ export const orders: Order[] = [
   },
   {
     _id: "ord-012",
-    customer: "Mia White (cust-012)",
+    customer: "cust-012)",
     products: [{ product: "prod-002", quantity: 6 }],
     totalPrice: 399.99,
     payment: "Paid",

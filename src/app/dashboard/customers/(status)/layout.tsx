@@ -1,5 +1,5 @@
 import React from "react";
-import { CreateCustomer } from "@/ui/customers/buttons";
+import { CreateCustomer } from "@/ui/customers/actionButtons";
 import Search from "@/ui/commonForAll/search";
 import { Suspense } from "react";
 import Loading from "@/app/dashboard/customers/loading";

@@ -1,7 +1,10 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/ui/commonForAll/button";
+import {
+  FormSubmitButton,
+  FormCancelLink,
+} from "@/ui/commonForAll/formButtons";
+import FormErrorMessage from "@/ui/commonForAll/formErrorMessage";
 import SpanStar from "@/ui/commonForAll/spanStar";
 import { useActionState, useState } from "react";
 import { createCustomer } from "@/lib/customers/create_action";
@@ -214,9 +217,7 @@ export default function Form() {
 
         {/* Form error */}
         <div id="form-error">
-          {state.message && (
-            <p className="mt-2 text-sm text-red-500">{state.message}</p>
-          )}
+          {state.message && <FormErrorMessage text={state.message} />}
         </div>
       </div>
 
@@ -228,14 +229,8 @@ export default function Form() {
       )}
 
       <div className="mt-6 flex justify-end gap-4">
-        <Link
-          href="/dashboard/customers"
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
-        >
-          Cancel
-        </Link>
-
-        <Button type="submit">Create Customer</Button>
+        <FormCancelLink href="/dashboard/customers"> Cancel </FormCancelLink>
+        <FormSubmitButton type="submit">Create Customer</FormSubmitButton>
       </div>
     </form>
   );

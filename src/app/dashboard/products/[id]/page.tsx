@@ -1,7 +1,6 @@
 import { fetchProductById } from "@/lib/products/fetchProduct_byId";
-
 import { notFound } from "next/navigation";
-
+import ProductDetail from "@/components/product/productDetail";
 export default async function DetailHomePage(props: {
   params: Promise<{ id: string }>;
 }) {
@@ -18,6 +17,7 @@ export default async function DetailHomePage(props: {
     <main>
       <h1>Product Details</h1>
       More details about the product with ID: {product_id}
+      <ProductDetail product={product} />
     </main>
   );
 }

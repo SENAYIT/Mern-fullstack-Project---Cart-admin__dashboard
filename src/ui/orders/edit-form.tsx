@@ -1,21 +1,29 @@
 "use client";
-import Link from "next/link";
-import { Button } from "@/ui/commonForAll/button";
+import {
+  FormCancelLink,
+  FormSubmitButton,
+} from "@/ui/commonForAll/formButtons";
+import FormErrorMessage from "@/ui/commonForAll/formErrorMessage";
 import SpanStar from "@/ui/commonForAll/spanStar";
 import { useActionState } from "react";
 
-import { Order, OrderValues, State } from "@/lib/orders/definitions";
+import {
+  Order,
+  OrderStatusValues,
+  OrderStatusState,
+} from "@/lib/orders/definitions";
+
 import { updateOrder } from "@/lib/orders/update_action";
 import ConfirmationModal from "@/ui/commonForAll/confirmationModal";
 
-export default function EditOrderForm({ order }: { order: Order }) {
-  const { customer, totalPrice, status } = order;
-  const initialOrderValue: OrderValues = {
-    customer: customer,
-    totalPrice: totalPrice as number,
+export default function EditOrderStatusForm({ order }: { order: Order }) {
+  const { status } = order;
+  const initialOrderValue: OrderStatusValues = {
+    // orderId: _id,
+    // customer: customer,
     status: status,
   };
-  const initialState: State = {
+  const initialState: OrderStatusState = {
     success: false,
     message: null,
     errors: {},
@@ -24,7 +32,7 @@ export default function EditOrderForm({ order }: { order: Order }) {
 
   const updateOrderWithId = updateOrder.bind(null, order._id);
 
-  const [state, formAction] = useActionState<State, FormData>(
+  const [state, formAction] = useActionState<OrderStatusState, FormData>(
     updateOrderWithId,
     initialState,
   );
@@ -36,63 +44,6 @@ export default function EditOrderForm({ order }: { order: Order }) {
         aria-describedby="form-error"
         className="w-full rounded-md bg-gray-50 p-4 md:p-6"
       >
-        {/* Customer Name */}
-        <div className="mb-4">
-          <label htmlFor="customer" className="mb-2 block text-sm font-medium">
-            Customer
-            <SpanStar />
-          </label>
-          <div className="relative">
-            <input
-              id="customer"
-              name="customer"
-              type="text"
-              defaultValue={state.values?.customer ?? ""}
-              placeholder="please enter customer name"
-              className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              aria-describedby="customer-error"
-            />
-          </div>
-          <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.customer &&
-              state.errors.customer.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-                  {error}
-                </p>
-              ))}
-          </div>
-        </div>
-
-        {/* Total Price */}
-        <div className="mb-4">
-          <label
-            htmlFor="totalPrice"
-            className="mb-2 block text-sm font-medium"
-          >
-            Total Price
-            <SpanStar />
-          </label>
-          <div className="relative">
-            <input
-              id="totalPrice"
-              name="totalPrice"
-              type="number"
-              defaultValue={state.values?.totalPrice ?? Number(0)}
-              placeholder="please enter total price"
-              className="peer block w-full md:max-w-3/4 rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              aria-describedby="totalPrice-error"
-            />
-          </div>
-          <div id="totalPrice-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.totalPrice &&
-              state.errors.totalPrice.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-                  {error}
-                </p>
-              ))}
-          </div>
-        </div>
-
         {/* Order Status */}
         <div className="mb-4">
           <label htmlFor="status" className="mb-2 block text-sm font-medium">
@@ -126,24 +77,18 @@ export default function EditOrderForm({ order }: { order: Order }) {
 
         {/* overall form error */}
         <div id="form-error" aria-live="polite" aria-atomic="true">
-          {state.message && (
-            <p className="mt-2 text-sm text-red-500">{state.message}</p>
-          )}
+          {state.message && <FormErrorMessage text={state.message} />}
         </div>
       </div>
+
       <div className="mt-6 flex justify-end gap-4">
-        <Link
-          href="/dashboard/orders"
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
-        >
-          Cancel
-        </Link>
-        <Button type="submit">Update Order</Button>
+        <FormCancelLink href="/dashboard/orders">Cancel</FormCancelLink>
+        <FormSubmitButton type="submit">Update Order</FormSubmitButton>
       </div>
 
       {state.success && (
         <ConfirmationModal
-          text={state.message ?? "Successfully Updated The Order"}
+          text={state.message ?? "Successfully Updated The Order State"}
           // next_href="/orders"
         />
       )}

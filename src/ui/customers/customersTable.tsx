@@ -1,6 +1,10 @@
 // import { formatDateTime } from "@/lib/utils";
 import Image from "next/image";
-import { DeleteCustomer, DetailCustomer, UpdateCustomer } from "./buttons";
+import {
+  DeleteCustomer,
+  DetailCustomer,
+  UpdateCustomer,
+} from "./actionButtons";
 import { Customer } from "@/lib/customers/definitions";
 
 export default function CustomersTable({

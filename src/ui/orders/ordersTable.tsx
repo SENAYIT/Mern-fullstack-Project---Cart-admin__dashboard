@@ -3,7 +3,21 @@ import { DetailOrder, UpdateOrder, DeleteOrder } from "./buttons";
 import { Order } from "@/lib/orders/definitions";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
+import { fetchCustomerById } from "@/lib/customers/fetchCustomer_byId";
+
 export default function OrdersTable({ orders }: { orders: Order[] }) {
+  // a function for getting the customerr name by order customerId
+  const customerName = async (orderCustId: string) => {
+    let custName = "";
+    const data = await fetchCustomerById(orderCustId);
+    if (data) {
+      custName = data.name;
+      return data.name;
+    }
+    custName = "Unknown";
+    return custName;
+  };
+
   return (
     <table className="hidden min-w-full rounded-md text-gray-900 md:table">
       <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
@@ -26,9 +40,9 @@ export default function OrdersTable({ orders }: { orders: Order[] }) {
           <th scope="col" className="px-3 py-5 font-medium">
             status
           </th>
-          <th scope="col" className="px-3 py-5 font-medium">
+          {/* <th scope="col" className="px-3 py-5 font-medium">
             Created Date
-          </th>
+          </th> */}
           <th scope="col" className="px-3 py-5 font-medium">
             Updated Date
           </th>
@@ -48,14 +62,13 @@ export default function OrdersTable({ orders }: { orders: Order[] }) {
               </div>
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-              {order.customer}
+              {customerName(order.customer)}
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {/* {order.products} */}
               <div className="flex flex-col gap-0.5">
                 <p> product 1</p>
                 <p> product 2</p>
-                <p> product 3</p>
                 <p> ... </p>
               </div>
             </td>
@@ -68,9 +81,9 @@ export default function OrdersTable({ orders }: { orders: Order[] }) {
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {order.status}
             </td>
-            <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+            {/* <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {formatDateTime(order.createdAt)}
-            </td>
+            </td> */}
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {formatDateTime(order.updatedAt)}
             </td>

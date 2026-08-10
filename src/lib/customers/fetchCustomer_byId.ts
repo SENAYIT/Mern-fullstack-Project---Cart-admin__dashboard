@@ -4,7 +4,7 @@ export async function fetchCustomerById(id: string) {
   try {
     const data = customers.find((customer) => customer._id === id);
 
-    console.log(`successful fetch by id data: ${data}`);
+    // console.log(`successful fetch by id data: ${data}`);
 
     return data;
   } catch (error) {

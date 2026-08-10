@@ -6,7 +6,7 @@ import {
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { Button } from "./button";
+import { FormSubmitButton } from "./formButtons";
 
 // for the login form - authentication form
 import { useActionState } from "react";
@@ -72,9 +72,9 @@ export default function LoginForm() {
         </div>
         {/* Hidden input for redirect URL */}
         <input type="hidden" name="redirectTo" value={callbackUrl} />
-        <Button className="mt-4 w-full" aria-disabled={isPending}>
+        <FormSubmitButton className="mt-4 w-full" aria-disabled={isPending}>
           Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
-        </Button>
+        </FormSubmitButton>
 
         <div className="flex h-8 items-end space-x-1">
           {/* Add form errors here */}

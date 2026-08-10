@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import React, { useState } from "react";
 import styles from "./modal.module.css";
 import { BackwardIcon } from "@heroicons/react/24/outline";
-import { Button } from "../button";
 
 type ModalProps = {
   open: boolean;
