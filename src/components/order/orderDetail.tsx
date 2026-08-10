@@ -103,20 +103,20 @@ export default async function OrderDetail({ order }: DetailProps) {
 
 // for the structure
 
-{
-  /* <DetailLayout>
+// {
+//   /* <DetailLayout>
 
-<DetailHeader {...orderHeader}/>
+// <DetailHeader {...orderHeader}/>
 
-<InfoCard {...orderInfo}/>
+// <InfoCard {...orderInfo}/>
 
-<ProductsTable {...products}/>
+// <ProductsTable {...products}/>
 
-<PaymentCard {...payment}/>
+// <PaymentCard {...payment}/>
 
-<Timeline {...timeline}/>
+// <Timeline {...timeline}/>
 
-<ActionButtons {...actions}/>
+// <ActionButtons {...actions}/>
 
-</DetailLayout> */
-}
+// </DetailLayout> */
+// }
