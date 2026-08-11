@@ -46,7 +46,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
               <div className="flex items-center gap-3">
                 {product.image ? (
                   <Image
-                    src={"/favicon.ico"}
+                    src={product.image}
                     className="rounded-full"
                     alt={`${product._id}'s profile picture`}
                     width={28}

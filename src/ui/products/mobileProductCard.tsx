@@ -12,13 +12,13 @@ export default function MobileProductCard({ product }: { product: Product }) {
     image = "/favicon.ico",
   } = product;
   return (
-    <div className="flex flex-col items-start justify-between border-b pb-4">
+    <div className="flex my-4 flex-col items-start justify-between border-b pb-4">
       <div className="mb-2">
         <div className="flex flex-col items-start justify-center gap-2">
           <div className="flex items-center gap-3">
             {image ? (
               <Image
-                src={image ?? "/favicon.ico"}
+                src={image}
                 className="rounded-full"
                 alt={`${name}'s profile picture`}
                 width={28}
