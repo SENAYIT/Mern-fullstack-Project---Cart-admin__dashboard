@@ -18,17 +18,20 @@ export default async function StatusLayout({
   if (!order_id || !order) {
     return notFound();
   }
-  const breadcrumbLinks = [
-    { href: "dashboard/orders", label: "Orders", active: false },
-    { href: `dashboard/orders/${id}`, label: id, active: true },
-    { href: `dashboard/orders/${id}/edit`, label: "edit", active: false },
-    // { href: "/", label: "Orders", active: false },
-    // { href: `dashboard/orders/${id}`, label: id, active: true },
-    // { href: `/edit`, label: "edit", active: false },
-  ];
+  // const breadcrumbLinks = [
+  //   { label: "Orders", href: "dashboard/orders" },
+  //   { label: id, href: `dashboard/orders/${id}`, active: true },
+  //   { label: "edit", href: `dashboard/orders/${id}/edit` },
+  // ];
   return (
     <main>
-      <Breadcrumbs breadcrumbs={breadcrumbLinks} />
+      <Breadcrumbs
+        breadcrumbs={[
+          { label: "Orders", href: "/dashboard/orders" },
+          { label: id, href: `dashboard/orders/${id}`, active: true },
+          { label: "edit", href: `dashboard/orders/${id}/edit` },
+        ]}
+      />
       {children}
     </main>
   );

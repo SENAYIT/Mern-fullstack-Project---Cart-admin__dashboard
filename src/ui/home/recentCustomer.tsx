@@ -1,4 +1,4 @@
-import { ArrowPathIcon ,UserIcon } from "@heroicons/react/24/outline";
+import { ArrowPathIcon, UserIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { lusitana } from "@/ui/fonts";
 import Image from "next/image";
@@ -30,7 +30,7 @@ export default async function RecentCustomers() {
                   },
                 )}
               >
-                <div className="flex items-center">
+                <div className="flex items-center max-w-3/4 mr-1">
                   {customer.profile_photo ? (
                     <Image
                       src={customer.profile_photo}
@@ -44,7 +44,7 @@ export default async function RecentCustomers() {
                       <UserIcon className="h-6 w-6 text-gray-500" />
                     </div>
                   )}
-                  <div className="min-w-0">
+                  <div className="max-w-3/4">
                     <p className="truncate text-sm font-semibold md:text-base">
                       {customer.name}
                     </p>
@@ -55,17 +55,18 @@ export default async function RecentCustomers() {
                 </div>
 
                 <p
-className={`${lusitana.className} truncate rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
-  customer.status === "Active"
-    ? "bg-green-100 text-green-700"
-    : customer.status === "Inactive"
-    ? "bg-yellow-100 text-yellow-700"
-    : customer.status === "Blocked"
-    ? "bg-red-100 text-red-700"
-    : customer.status === "Not-Blocked"
-    ? "bg-purple-100 text-purple-700"
-    : "bg-gray-100 text-gray-600"
-}`}                >
+                  className={`${lusitana.className} truncate rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+                    customer.status === "Active"
+                      ? "bg-green-100 text-green-700"
+                      : customer.status === "Inactive"
+                        ? "bg-yellow-100 text-yellow-700"
+                        : customer.status === "Blocked"
+                          ? "bg-red-100 text-red-700"
+                          : customer.status === "Not-Blocked"
+                            ? "bg-purple-100 text-purple-700"
+                            : "bg-gray-100 text-gray-600"
+                  }`}
+                >
                   {customer.status}
                 </p>
               </div>

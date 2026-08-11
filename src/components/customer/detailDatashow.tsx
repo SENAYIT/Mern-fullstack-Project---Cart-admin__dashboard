@@ -7,7 +7,10 @@ export default function detailDatashow({ orders }: { orders: Order[] }) {
   const totalData = Number(orders.length);
 
   return (
-    <div>
+    <section>
+      <h2 className="font-bold py-2 px-4 mb-2 text-lg">
+        Customer's Orders List
+      </h2>
       <Container>
         <div className=" md:hidden">
           {orders?.map((order) => (
@@ -25,6 +28,6 @@ export default function detailDatashow({ orders }: { orders: Order[] }) {
         </div>
       </Container>
       <TablePagination totalData={totalData} />
-    </div>
+    </section>
   );
 }

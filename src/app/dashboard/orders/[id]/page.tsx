@@ -2,7 +2,6 @@ import { fetchOrderById } from "@/lib/orders/fetchOrder_byId";
 import { notFound } from "next/navigation";
 import OrderDetail from "@/components/order/orderDetail";
 // import { fetchCustomerById } from "@/lib/customers/fetchCustomer_byId";
-
 export default async function DetailHomePage({
   params,
 }: {

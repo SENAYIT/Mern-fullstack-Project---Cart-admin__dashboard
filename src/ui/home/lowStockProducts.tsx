@@ -27,7 +27,7 @@ export default async function LowStockProducts() {
                   },
                 )}
               >
-                <div className="flex items-center">
+                <div className="flex items-center max-w-3/4">
                   {product.image ? (
                     <Image
                       src={product.image}
@@ -42,7 +42,7 @@ export default async function LowStockProducts() {
                     </div>
                   )}
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold md:text-base">
+                    <p className="truncate text-sm font-semibold md:text-base text-wrap">
                       {product.name}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">

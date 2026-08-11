@@ -27,12 +27,12 @@ export default async function TopProducts() {
                   },
                 )}
               >
-                <div className="flex items-center">
+                <div className="flex items-center max-w-1/2">
                   {product.image ? (
                     <Image
                       src={product.image}
                       alt={`${product.name}'s profile picture`}
-                      className="mr-4 rounded-full"
+                      className="mr-2 md:mr-4 rounded-full"
                       width={32}
                       height={32}
                     />
@@ -41,8 +41,8 @@ export default async function TopProducts() {
                       <ShoppingBagIcon className="h-6 w-6 text-gray-500" />
                     </div>
                   )}
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold md:text-base">
+                  <div className="min-w-0 space-x-1 md:space-x-auto">
+                    <p className="truncate text-sm font-semibold md:text-base text-wrap">
                       {product.name}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
@@ -50,13 +50,14 @@ export default async function TopProducts() {
                     </p>
                   </div>
                 </div>
+
                 <p
-                  className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
+                  className={`${lusitana.className} truncate text-sm font-medium mr-3 md:text-base`}
                 >
                   {product.totalSold}
                 </p>
                 <p
-                  className={`${lusitana.className} truncate text-sm font-bold text-green-500 md:text-base`}
+                  className={`${lusitana.className} truncate text-sm md:font-bold text-green-500 md:text-base`}
                 >
                   ${(product.totalSold * product.price).toFixed(2)}
                 </p>

@@ -1,7 +1,10 @@
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { DeleteOrder, DetailOrder, UpdateOrder } from "./buttons";
+import { Order } from "@/lib/orders/definitions";
+import GetOrderProducts from "./getOrderProduct";
+import GetCustomerName from "./getOrderCustomerName";
 
-export default function MobileOrderCard({ order }: { order: any }) {
+export default function MobileOrderCard({ order }: { order: Order }) {
   return (
     <div className="flex flex-col items-start justify-between border-b pb-4">
       <div className="mb-2">
@@ -27,8 +30,15 @@ export default function MobileOrderCard({ order }: { order: any }) {
           </div>
 
           <div className="flex flex-col items-start justify-center gap-3">
-            <p className="text-sm text-gray-500">Customer - {order.customer}</p>
-            <p className="text-sm text-gray-500">products - </p>
+            <p className="text-sm text-gray-500">
+              Customer - <GetCustomerName orderCustId={order.customer} />
+            </p>
+            <div className="flex text-sm text-gray-500">
+              Products -
+              <span className="pl-2 text-sm text-gray-500">
+                <GetOrderProducts order={order} />
+              </span>
+            </div>
             <p className="text-sm text-gray-500">
               Total Price - {order.totalPrice}
             </p>

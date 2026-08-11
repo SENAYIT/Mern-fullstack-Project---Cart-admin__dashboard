@@ -35,14 +35,23 @@ export default async function RecentOrders() {
                   },
                 )}
               >
-                <p className="truncate text-sm font-semibold md:text-base">
-                  {order._id}
-                </p>
-                <p className="truncate text-sm font-semibold md:text-base">
-                  {customerName(order.customer)}
-                </p>
+                <div className="max-w-1/3 mr-0.5">
+                  <p className="truncate text-sm font-semibold md:text-base">
+                    {order._id}
+                  </p>
+                  <p className="truncate text-sm md:text-base">
+                    {customerName(order.customer)}
+                  </p>
+                </div>
+
                 <p
-                  className={`${lusitana.className} truncate rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+                  className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
+                >
+                  ${order.totalPrice}
+                </p>
+
+                <p
+                  className={`${lusitana.className} truncate rounded-full px-2.5 py-1 text-xs md:text-sm ${
                     order.status === "completed"
                       ? "bg-green-100 text-green-700"
                       : order.status === "cancelled"
@@ -55,12 +64,6 @@ export default async function RecentOrders() {
                   }`}
                 >
                   {order.status}
-                </p>
-
-                <p
-                  className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
-                >
-                  {order.totalPrice}
                 </p>
               </div>
             );

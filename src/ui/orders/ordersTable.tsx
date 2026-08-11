@@ -2,22 +2,9 @@ import { formatDateTime } from "@/lib/utils";
 import { DetailOrder, UpdateOrder, DeleteOrder } from "./buttons";
 import { Order } from "@/lib/orders/definitions";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
-
-import { fetchCustomerById } from "@/lib/customers/fetchCustomer_byId";
-
+import GetOrderCustomerName from "./getOrderCustomerName";
+import GetOrderProducts from "./getOrderProduct";
 export default function OrdersTable({ orders }: { orders: Order[] }) {
-  // a function for getting the customerr name by order customerId
-  const customerName = async (orderCustId: string) => {
-    let custName = "";
-    const data = await fetchCustomerById(orderCustId);
-    if (data) {
-      custName = data.name;
-      return data.name;
-    }
-    custName = "Unknown";
-    return custName;
-  };
-
   return (
     <table className="hidden min-w-full rounded-md text-gray-900 md:table">
       <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
@@ -62,13 +49,12 @@ export default function OrdersTable({ orders }: { orders: Order[] }) {
               </div>
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-              {customerName(order.customer)}
+              <GetOrderCustomerName orderCustId={order.customer} />
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {/* {order.products} */}
-              <div className="flex flex-col gap-0.5">
-                <p> product 1</p>
-                <p> product 2 ...</p>
+              <div className="flex flex-col items-start gap-0.5">
+                <GetOrderProducts order={order} />
               </div>
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">

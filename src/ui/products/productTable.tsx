@@ -51,6 +51,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
                     alt={`${product._id}'s profile picture`}
                     width={28}
                     height={28}
+                    loading="lazy"
                   />
                 ) : (
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
@@ -71,23 +72,23 @@ export default function ProductTable({ products }: { products: Product[] }) {
               {product.price.toFixed(2)}
             </td>
 
-          <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-  <span
-    className={`rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
-      product.status === "active"
-        ? "bg-green-100 text-green-700"
-        : product.status === "inactive"
-          ? "bg-red-100 text-red-700"
-          : product.status === "low-stock"
-            ? "bg-orange-100 text-orange-700"
-            : product.status === "new"
-              ? "bg-purple-100 text-purple-700"
-              : "bg-gray-100 text-gray-600"
-    }`}
-  >
-    {product.status}
-  </span>
-</td>
+            <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+              <span
+                className={`rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+                  product.status === "active"
+                    ? "bg-green-100 text-green-700"
+                    : product.status === "inactive"
+                      ? "bg-red-100 text-red-700"
+                      : product.status === "low-stock"
+                        ? "bg-orange-100 text-orange-700"
+                        : product.status === "new"
+                          ? "bg-purple-100 text-purple-700"
+                          : "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {product.status}
+              </span>
+            </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {product.totalSold}
             </td>
@@ -101,7 +102,6 @@ export default function ProductTable({ products }: { products: Product[] }) {
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               <div className="flex gap-1 items-center">
                 <DetailProduct id={product._id} />
-
                 <UpdateProduct id={product._id} />
                 <DeleteProduct id={product._id} />
               </div>
