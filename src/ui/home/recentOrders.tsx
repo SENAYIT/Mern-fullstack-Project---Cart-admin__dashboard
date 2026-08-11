@@ -42,7 +42,17 @@ export default async function RecentOrders() {
                   {customerName(order.customer)}
                 </p>
                 <p
-                  className={`${lusitana.className} truncate text-sm font-medium md:text-base px-1 rounded-md ${order.status === "completed" ? "text-green-500 bg-green-200" : order.status === "cancelled" ? "text-red-500 bg-red-200" : order.status === "pending" ? "text-blue-500 bg-blue-200" : order.status === "new" ? "text-purple-500 bg-purple-200" : "text-gray-400"}`}
+                  className={`${lusitana.className} truncate rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+                    order.status === "completed"
+                      ? "bg-green-100 text-green-700"
+                      : order.status === "cancelled"
+                        ? "bg-red-100 text-red-700"
+                        : order.status === "pending"
+                          ? "bg-blue-100 text-blue-700"
+                          : order.status === "new"
+                            ? "bg-purple-100 text-purple-700"
+                            : "bg-gray-100 text-gray-600"
+                  }`}
                 >
                   {order.status}
                 </p>

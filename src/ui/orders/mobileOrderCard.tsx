@@ -9,7 +9,21 @@ export default function MobileOrderCard({ order }: { order: any }) {
           <div className="flex items-center gap-3">
             <ShoppingCartIcon className="h-6 w-6" />
             <p>Order - {order._id}</p>
-            <span className="flex items-center self-end">{order.status}</span>
+            <span
+              className={`flex w-fit items-center self-end rounded-full px-2.5 py-1 text-xs font-medium ${
+                order.status === "completed"
+                  ? "bg-green-100 text-green-700"
+                  : order.status === "cancelled"
+                    ? "bg-red-100 text-red-700"
+                    : order.status === "pending"
+                      ? "bg-blue-100 text-blue-700"
+                      : order.status === "new"
+                        ? "bg-purple-100 text-purple-700"
+                        : "bg-gray-100 text-gray-600"
+              }`}
+            >
+              {order.status}
+            </span>{" "}
           </div>
 
           <div className="flex flex-col items-start justify-center gap-3">
@@ -18,7 +32,22 @@ export default function MobileOrderCard({ order }: { order: any }) {
             <p className="text-sm text-gray-500">
               Total Price - {order.totalPrice}
             </p>
-            <p className="text-sm text-gray-500">Payment - {order.payment}</p>
+            <p className="text-sm text-gray-500">
+              Payment -{" "}
+              <span
+                className={`rounded-full px-2 py-1 text-xs font-medium ${
+                  order.payment === "Paid"
+                    ? "bg-green-100 text-green-700"
+                    : order.payment === "Not Paid"
+                      ? "bg-red-100 text-red-700"
+                      : order.payment === "Pending"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {order.payment}
+              </span>
+            </p>{" "}
           </div>
         </div>
       </div>

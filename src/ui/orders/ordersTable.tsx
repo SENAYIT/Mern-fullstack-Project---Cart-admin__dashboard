@@ -74,15 +74,38 @@ export default function OrdersTable({ orders }: { orders: Order[] }) {
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {order.totalPrice}
             </td>
-            <td
-              className={`whitespace-nowrap bg-white px-4 py-5 text-sm ${order.payment === "Paid" ? "text-green-500 bg-green-200" : order.payment === "Not Paid" ? "text-red-500 bg-red-200" : order.payment === "Pending" ? "text-blue-500 bg-blue-200" : "text-gray-400"}`}
-            >
-              {order.payment}
+            <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+              <span
+                className={`rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+                  order.payment === "Paid"
+                    ? "bg-green-100 text-green-700"
+                    : order.payment === "Not Paid"
+                      ? "bg-red-100 text-red-700"
+                      : order.payment === "Pending"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {order.payment}
+              </span>
             </td>
-            <td
-              className={`whitespace-nowrap bg-white px-4 py-5 text-sm ${order.status === "completed" ? "text-green-500 bg-green-200" : order.status === "cancelled" ? "text-red-500 bg-red-200" : order.status === "pending" ? "text-blue-500 bg-blue-200" : order.status === "new" ? "text-purple-500 bg-purple-200" : "text-gray-400"}`}
-            >
-              {order.status}
+
+            <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+              <span
+                className={`rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+                  order.status === "completed"
+                    ? "bg-green-100 text-green-700"
+                    : order.status === "cancelled"
+                      ? "bg-red-100 text-red-700"
+                      : order.status === "pending"
+                        ? "bg-blue-100 text-blue-700"
+                        : order.status === "new"
+                          ? "bg-purple-100 text-purple-700"
+                          : "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {order.status}
+              </span>
             </td>
             {/* <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {formatDateTime(order.createdAt)}

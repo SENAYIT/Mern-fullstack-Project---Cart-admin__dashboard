@@ -55,8 +55,17 @@ export default async function RecentCustomers() {
                 </div>
 
                 <p
-                  className={`${lusitana.className} truncate text-sm font-medium md:text-base px-1 rounded-md ${customer.status === "Active" ? "text-green-500 bg-green-200" : customer.status === "Inactive" ? "text-red-500 bg-red-200" : customer.status === "Blocked" ? "text-black-500 bg-gray-200" : customer.status === "Not-Blocked" ? "text-purple-500 bg-purple-200" : "text-gray-400"}`}
-                >
+className={`${lusitana.className} truncate rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+  customer.status === "Active"
+    ? "bg-green-100 text-green-700"
+    : customer.status === "Inactive"
+    ? "bg-yellow-100 text-yellow-700"
+    : customer.status === "Blocked"
+    ? "bg-red-100 text-red-700"
+    : customer.status === "Not-Blocked"
+    ? "bg-purple-100 text-purple-700"
+    : "bg-gray-100 text-gray-600"
+}`}                >
                   {customer.status}
                 </p>
               </div>

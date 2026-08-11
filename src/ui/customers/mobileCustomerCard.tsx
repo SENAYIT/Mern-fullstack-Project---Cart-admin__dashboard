@@ -29,8 +29,21 @@ export default function MobileCustomerCard({
                 <UserIcon className="h-6 w-6 text-gray-500" />
               </div>
             )}
+
             <p>{customer.name}</p>
-            <span className="flex items-center self-end">
+            <span
+              className={`flex w-fit items-center self-end rounded-full px-2.5 py-1 text-xs font-medium ${
+                customer.status === "Active"
+                  ? "bg-green-100 text-green-700"
+                  : customer.status === "Inactive"
+                    ? "bg-yellow-100 text-yellow-700"
+                    : customer.status === "Blocked"
+                      ? "bg-red-100 text-red-700"
+                      : customer.status === "Not-Blocked"
+                        ? "bg-purple-100 text-purple-700"
+                        : "bg-gray-100 text-gray-600"
+              }`}
+            >
               {customer.status}
             </span>
           </div>
@@ -38,8 +51,23 @@ export default function MobileCustomerCard({
           <div className="flex flex-col items-start justify-center gap-3">
             <p className="text-sm text-gray-500">{customer.email}</p>
             <p className="text-sm text-gray-500">{customer.phoneNumber}</p>
-            <p className="text-sm text-gray-500">{customer.status}</p>
-          </div>
+<p className="text-sm text-gray-500">
+  <span
+    className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+      customer.status === "Active"
+        ? "bg-green-100 text-green-700"
+        : customer.status === "Inactive"
+          ? "bg-yellow-100 text-yellow-700"
+          : customer.status === "Blocked"
+            ? "bg-red-100 text-red-700"
+            : customer.status === "Not-Blocked"
+              ? "bg-purple-100 text-purple-700"
+              : "bg-gray-100 text-gray-600"
+    }`}
+  >
+    {customer.status}
+  </span>
+</p>          </div>
         </div>
       </div>
 

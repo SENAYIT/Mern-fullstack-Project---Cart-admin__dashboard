@@ -30,14 +30,45 @@ export default function MobileProductCard({ product }: { product: Product }) {
               </div>
             )}
             <p>{name}</p>
-            <span className="flex items-center self-end">{status}</span>
+            <span
+              className={`flex w-fit items-center self-end rounded-full px-2.5 py-1 text-xs font-medium ${
+                status === "active"
+                  ? "bg-green-100 text-green-700"
+                  : status === "inactive"
+                    ? "bg-red-100 text-red-700"
+                    : status === "low-stock"
+                      ? "bg-orange-100 text-orange-700"
+                      : status === "new"
+                        ? "bg-purple-100 text-purple-700"
+                        : "bg-gray-100 text-gray-600"
+              }`}
+            >
+              {status}
+            </span>{" "}
           </div>
 
           <div className="flex flex-col items-start justify-center gap-3">
             <p className="text-sm text-gray-500">{description}</p>
             <p className="text-sm text-gray-500">${price.toFixed(2)}</p>
             <p className="text-sm text-gray-500">{stock}</p>
-            <p className="text-sm text-gray-500">${status}</p>
+            <p className="text-sm text-gray-500">
+              Status -{" "}
+              <span
+                className={`rounded-full px-2 py-1 text-xs font-medium ${
+                  status === "active"
+                    ? "bg-green-100 text-green-700"
+                    : status === "inactive"
+                      ? "bg-red-100 text-red-700"
+                      : status === "low-stock"
+                        ? "bg-orange-100 text-orange-700"
+                        : status === "new"
+                          ? "bg-purple-100 text-purple-700"
+                          : "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {status}
+              </span>
+            </p>{" "}
             <p className="text-sm text-gray-500">
               Total Sold: {product.totalSold}
             </p>

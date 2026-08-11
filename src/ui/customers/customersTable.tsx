@@ -59,6 +59,7 @@ export default function CustomersTable({
                     <UserIcon className="h-6 w-6 text-gray-500" />
                   </div>
                 )}
+
                 <p>{customer.name}</p>
               </div>
             </td>
@@ -70,7 +71,21 @@ export default function CustomersTable({
             </td>
 
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-              {customer.status}
+              <span
+                className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+                  customer.status === "Active"
+                    ? "bg-green-100 text-green-700"
+                    : customer.status === "Inactive"
+                      ? "bg-yellow-100 text-yellow-700"
+                      : customer.status === "Blocked"
+                        ? "bg-red-100 text-red-700"
+                        : customer.status === "Not-Blocked"
+                          ? "bg-purple-100 text-purple-700"
+                          : "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {customer.status}
+              </span>
             </td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               total Orders

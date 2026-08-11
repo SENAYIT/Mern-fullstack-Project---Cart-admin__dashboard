@@ -57,6 +57,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
                     <ShoppingBagIcon className="h-6 w-6 text-gray-500" />
                   </div>
                 )}
+
                 <p>{product._id}</p>
               </div>
             </td>
@@ -70,11 +71,23 @@ export default function ProductTable({ products }: { products: Product[] }) {
               {product.price.toFixed(2)}
             </td>
 
-            <td
-              className={`whitespace-nowrap bg-white px-4 py-5 text-sm ${product.status === "active" ? "text-green-500 bg-green-100" : product.status === "inactive" ? "text-red-500 bg-red-200" : product.status === "low-stock" ? "text-red-900 bg-red-200" : product.status === "new" ? "text-purple-900 bg-purple-200" : "text-gray-400"}`}
-            >
-              {product.status}
-            </td>
+          <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
+  <span
+    className={`rounded-full px-2.5 py-1 text-xs font-medium md:text-sm ${
+      product.status === "active"
+        ? "bg-green-100 text-green-700"
+        : product.status === "inactive"
+          ? "bg-red-100 text-red-700"
+          : product.status === "low-stock"
+            ? "bg-orange-100 text-orange-700"
+            : product.status === "new"
+              ? "bg-purple-100 text-purple-700"
+              : "bg-gray-100 text-gray-600"
+    }`}
+  >
+    {product.status}
+  </span>
+</td>
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               {product.totalSold}
             </td>
