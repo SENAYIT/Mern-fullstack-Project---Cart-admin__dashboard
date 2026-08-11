@@ -1,6 +1,7 @@
 import { DeleteProduct, DetailProduct, UpdateProduct } from "./buttons";
 import Image from "next/image";
 import { Product } from "@/lib/products/definitions";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 export default function MobileProductCard({ product }: { product: Product }) {
   const {
     name,
@@ -15,13 +16,19 @@ export default function MobileProductCard({ product }: { product: Product }) {
       <div className="mb-2">
         <div className="flex flex-col items-start justify-center gap-2">
           <div className="flex items-center gap-3">
-            <Image
-              src={image ?? "/favicon.ico"}
-              className="rounded-full"
-              alt={`${name}'s profile picture`}
-              width={28}
-              height={28}
-            />
+            {image ? (
+              <Image
+                src={image ?? "/favicon.ico"}
+                className="rounded-full"
+                alt={`${name}'s profile picture`}
+                width={28}
+                height={28}
+              />
+            ) : (
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
+                <ShoppingBagIcon className="h-6 w-6 text-gray-500" />
+              </div>
+            )}
             <p>{name}</p>
             <span className="flex items-center self-end">{status}</span>
           </div>

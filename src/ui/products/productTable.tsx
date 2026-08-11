@@ -2,6 +2,7 @@ import { formatDateTime } from "@/lib/utils";
 import Image from "next/image";
 import { DeleteProduct, DetailProduct, UpdateProduct } from "./buttons";
 import { Product } from "@/lib/products/definitions";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 export default function ProductTable({ products }: { products: Product[] }) {
   return (
@@ -43,13 +44,19 @@ export default function ProductTable({ products }: { products: Product[] }) {
           <tr key={product._id} className="group">
             <td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
               <div className="flex items-center gap-3">
-                <Image
-                  src={"/favicon.ico"}
-                  className="rounded-full"
-                  alt={`${product._id}'s profile picture`}
-                  width={28}
-                  height={28}
-                />
+                {product.image ? (
+                  <Image
+                    src={"/favicon.ico"}
+                    className="rounded-full"
+                    alt={`${product._id}'s profile picture`}
+                    width={28}
+                    height={28}
+                  />
+                ) : (
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
+                    <ShoppingBagIcon className="h-6 w-6 text-gray-500" />
+                  </div>
+                )}
                 <p>{product._id}</p>
               </div>
             </td>

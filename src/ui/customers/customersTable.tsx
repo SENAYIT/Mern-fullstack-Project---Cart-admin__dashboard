@@ -5,6 +5,7 @@ import {
   UpdateCustomer,
   DeleteCustomer,
 } from "./actionButtons";
+import { UserIcon } from "@heroicons/react/24/outline";
 import { Customer } from "@/lib/customers/definitions";
 
 export default function CustomersTable({
@@ -45,13 +46,19 @@ export default function CustomersTable({
           <tr key={customer._id} className="group">
             <td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
               <div className="flex items-center gap-3">
-                <Image
-                  src={customer.profile_photo}
-                  className="rounded-full"
-                  alt={`${customer.name}'s profile picture`}
-                  width={28}
-                  height={28}
-                />
+                {customer.profile_photo ? (
+                  <Image
+                    src={customer.profile_photo}
+                    className="rounded-full"
+                    alt={`${customer.name}'s profile picture`}
+                    width={28}
+                    height={28}
+                  />
+                ) : (
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
+                    <UserIcon className="h-6 w-6 text-gray-500" />
+                  </div>
+                )}
                 <p>{customer.name}</p>
               </div>
             </td>

@@ -1,4 +1,4 @@
-import { ArrowPathIcon } from "@heroicons/react/24/outline";
+import { ArrowPathIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { lusitana } from "@/ui/fonts";
 import { fetchTop_Products } from "@/lib/products/fetchTop_Products";
@@ -28,13 +28,19 @@ export default async function TopProducts() {
                 )}
               >
                 <div className="flex items-center">
-                  <Image
-                    src={product.image}
-                    alt={`${product.name}'s profile picture`}
-                    className="mr-4 rounded-full"
-                    width={32}
-                    height={32}
-                  />
+                  {product.image ? (
+                    <Image
+                      src={product.image}
+                      alt={`${product.name}'s profile picture`}
+                      className="mr-4 rounded-full"
+                      width={32}
+                      height={32}
+                    />
+                  ) : (
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
+                      <ShoppingBagIcon className="h-6 w-6 text-gray-500" />
+                    </div>
+                  )}
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
                       {product.name}

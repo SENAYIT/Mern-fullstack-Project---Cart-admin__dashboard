@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { UserIcon } from "@heroicons/react/24/outline";
 import {
   DeleteCustomer,
   DetailCustomer,
@@ -15,13 +16,19 @@ export default function MobileCustomerCard({
       <div className="mb-2">
         <div className="flex flex-col items-start justify-center gap-2">
           <div className="flex items-center gap-3">
-            <Image
-              src={customer.profile_photo ?? "/favicon.ico"}
-              className="rounded-full"
-              alt={`${customer.name}'s profile picture`}
-              width={28}
-              height={28}
-            />
+            {customer.profile_photo ? (
+              <Image
+                src={customer.profile_photo ?? "/favicon.ico"}
+                className="rounded-full"
+                alt={`${customer.name}'s profile picture`}
+                width={28}
+                height={28}
+              />
+            ) : (
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
+                <UserIcon className="h-6 w-6 text-gray-500" />
+              </div>
+            )}
             <p>{customer.name}</p>
             <span className="flex items-center self-end">
               {customer.status}
