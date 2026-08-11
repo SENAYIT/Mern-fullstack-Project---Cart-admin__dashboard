@@ -1,41 +1,43 @@
 "use server";
 import { revalidatePath } from "next/cache";
 
-export async function deleteCustomer(id: string) {
+export type State = {
+  success: boolean;
+  message: string | null;
+};
+
+export async function deleteCustomer(
+  id: string,
+  prev: State,
+  // formData: FormData,
+): Promise<State> {
   try {
     const deletedCustomer_Id = `deleted customer id is:${id}`;
     console.log(deletedCustomer_Id);
 
     revalidatePath("/dashboard/customers");
+
+    return {
+      success: true,
+      message: "successfully deleted the customer",
+    };
   } catch (error) {
     console.log(error);
-    throw new Error("Failed to Delete Customer");
-    // return {
-    //   success: false,
-    //   message: "Failed to Delete Customer",
-    // };
+    // throw new Error("Something went wrong");
+    return {
+      success: false,
+      message: "Something went wrong",
+    };
   }
 }
 
-// type State = {
-//   success: boolean;
-//   message: string;
-// };
-
-// export async function deleteCustomer(
-//   prevState: State,
-//   id: string,
-// ): Promise<State> {
+// export async function deleteCustomer(id: string) {
 //   try {
 //     const deletedCustomer_Id = `deleted customer id is:${id}`;
 //     console.log(deletedCustomer_Id);
 
 //     revalidatePath("/dashboard/customers");
 
-//     return {
-//       success: true,
-//       message: "successfully deleted the customer",
-//     };
 //   } catch (error) {
 //     console.log(error);
 //     throw new Error("Failed to Delete Customer");

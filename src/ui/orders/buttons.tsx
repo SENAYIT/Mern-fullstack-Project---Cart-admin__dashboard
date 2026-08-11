@@ -1,10 +1,9 @@
-import { deleteOrder } from "@/lib/orders/delete_action";
 import {
   Create,
-  DeleteButton,
   Detail,
   Update,
 } from "@/ui/commonForAll/editActionButtons_link";
+import DeleteForm from "./delete-form";
 
 export function CreateOrder() {
   return <Create href="/dashboard/orders/create" text={"Create Order"} />;
@@ -19,11 +18,5 @@ export function UpdateOrder({ id }: { id: string }) {
 }
 
 export function DeleteOrder({ id }: { id: string }) {
-  const deleteOrderWithId = deleteOrder.bind(null, id);
-
-  return (
-    <form action={deleteOrderWithId}>
-      <DeleteButton />
-    </form>
-  );
+  return <DeleteForm id={id} />;
 }

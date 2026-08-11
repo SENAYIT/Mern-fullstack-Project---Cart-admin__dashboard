@@ -1,31 +1,5 @@
-import AdminLogo from "@/ui/commonForAll/admin-logo";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { lusitana } from "@/ui/fonts";
+import LoginPage from "./login/page";
 
-export default function Home() {
-  return (
-    <div>
-      <main className="min-h-screen">
-        <div className="w-auto mt-2 flex flex-col items-center justify-center gap-8 ">
-          <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-            <AdminLogo />
-          </div>
-          <p
-            className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
-          >
-            <strong>Welcome to Admin Dashboard.</strong>
-            This is My best project that I have built by myself
-          </p>
-          {/*  self-start for makking the list at the start if other center or end */}
-          <Link
-            href="/login"
-            className="flex items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-          >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
-          </Link>
-        </div>
-      </main>
-    </div>
-  );
+export default function HomePage() {
+  return <LoginPage />;
 }

@@ -3,7 +3,7 @@
 import { useActionState, useState } from "react";
 import { TrashIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
 
-import { deleteCustomer } from "@/lib/customers/delete_action";
+import { deleteOrder } from "@/lib/orders/delete_action";
 export type State = {
   success: boolean;
   message: string | null;
@@ -12,10 +12,10 @@ export type State = {
 export default function DeleteForm({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
 
-  const deleteCustomerWithId = deleteCustomer.bind(null, id);
+  const deleteOrderWithId = deleteOrder.bind(null, id);
 
   const [state, formAction, isPending] = useActionState<State>(
-    deleteCustomerWithId,
+    deleteOrderWithId,
     {
       success: false,
       message: null,
@@ -35,10 +35,10 @@ export default function DeleteForm({ id }: { id: string }) {
           <div className="w-full max-w-sm rounded-xl bg-white p-6 shadow-xl">
             {!isPending && !state.success ? (
               <>
-                <h2 className="text-lg font-semibold">Delete Customer?</h2>
+                <h2 className="text-lg font-semibold">Delete Order?</h2>
 
                 <p className="mt-2 text-sm flex flex-col text-gray-500">
-                  Are you sure you want to delete this customer?
+                  Are you sure you want to delete this order?
                   <span>This action cannot be undone.</span>
                 </p>
 

@@ -1,9 +1,9 @@
 // import { formatDateTime } from "@/lib/utils";
 import Image from "next/image";
 import {
-  DeleteCustomer,
   DetailCustomer,
   UpdateCustomer,
+  DeleteCustomer,
 } from "./actionButtons";
 import { Customer } from "@/lib/customers/definitions";
 
