@@ -35,7 +35,7 @@ export default async function LowStockProducts() {
                       className="mr-4 rounded-full"
                       width={32}
                       height={32}
-                      preload
+                      priority
                     />
                   ) : (
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
