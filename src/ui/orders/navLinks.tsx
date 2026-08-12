@@ -15,7 +15,7 @@ const links = [
 
 export default function NavLinks() {
   return (
-    <div className="flex items-center justify-start gap-4">
+    <div className="flex items-center justify-start gap-2">
       {links.map((link) => (
         <GotoLink key={link.name} href={link.href} className="">
           {link.name}

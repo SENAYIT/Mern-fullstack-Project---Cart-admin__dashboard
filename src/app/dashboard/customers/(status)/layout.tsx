@@ -11,8 +11,8 @@ export default function StatusLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className="border-b-2 border-b-gray-200 p-2">
+    <div className="flex flex-col gap-2 md:gap-4">
+      <div className="border-b-2 border-b-gray-200">
         <NavLinks />
       </div>
 
