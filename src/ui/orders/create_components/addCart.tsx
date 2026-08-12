@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { products } from "@/store/shopping-cart-context";
+import { products } from "@/lib/products/placeholderdata";
 import { useContext } from "react";
 import { CartContext } from "@/store/shopping-cart-context";
 import CartSelectedItemShow from "./cartSelectedItem";

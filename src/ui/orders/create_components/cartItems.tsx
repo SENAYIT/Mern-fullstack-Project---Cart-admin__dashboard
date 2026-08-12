@@ -28,8 +28,10 @@ export default function CartItems() {
                 key={item.productId}
                 className="flex items-center justify-between p-3"
               >
-                <span>{item.name}</span>
-                <span>${item.totalPrice}</span>
+                <div className="flex flex-col items-start gap-2 md:flex-row md:items-center md:gap-4 md:justify-between">
+                  <span>{item.name}</span>
+                  <span>${item.totalPrice}</span>
+                </div>
 
                 <div className="flex items-center gap-2">
                   <button

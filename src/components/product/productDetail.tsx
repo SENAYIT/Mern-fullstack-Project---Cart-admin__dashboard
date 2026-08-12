@@ -5,6 +5,7 @@ import StatsCard from "../common/detail/statsCard";
 import Timeline from "../common/detail/timeline";
 import { Product } from "@/lib/products/definitions";
 import ActionButtons from "../common/detail/actionButtons";
+import AddCartButton from "@/ui/dashboard/addCartButton";
 import {
   CreateProduct,
   DeleteProduct,
@@ -52,6 +53,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
       <Timeline items={["New", "exited"]} />
       <ActionButtons>
+        <AddCartButton productId={product._id} quantity={1} />
         <CreateProduct />
         <UpdateProduct id={_id} />
         <DeleteProduct id={_id} />

@@ -1,4 +1,4 @@
-import { products } from "@/store/shopping-cart-context";
+import { products } from "@/lib/products/placeholderdata";
 
 export default function CartSelectedItemShow({
   selectProductId,

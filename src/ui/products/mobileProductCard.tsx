@@ -2,6 +2,7 @@ import { DeleteProduct, DetailProduct, UpdateProduct } from "./buttons";
 import Image from "next/image";
 import { Product } from "@/lib/products/definitions";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import AddCartButton from "../dashboard/addCartButton";
 export default function MobileProductCard({ product }: { product: Product }) {
   const {
     name,
@@ -77,8 +78,8 @@ export default function MobileProductCard({ product }: { product: Product }) {
       </div>
 
       <div className="flex flex-row gap-3 items-center self-end">
+        <AddCartButton productId={product._id} quantity={1} />
         <DetailProduct id={product._id} />
-
         <DeleteProduct id={product._id} />
         <UpdateProduct id={product._id} />
       </div>

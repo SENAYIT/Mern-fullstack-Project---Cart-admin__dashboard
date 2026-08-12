@@ -3,6 +3,7 @@ import Image from "next/image";
 import { DeleteProduct, DetailProduct, UpdateProduct } from "./buttons";
 import { Product } from "@/lib/products/definitions";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import AddCartButton from "../dashboard/addCartButton";
 
 export default function ProductTable({ products }: { products: Product[] }) {
   return (
@@ -101,6 +102,7 @@ export default function ProductTable({ products }: { products: Product[] }) {
 
             <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
               <div className="flex gap-1 items-center">
+                <AddCartButton productId={product._id} quantity={1} />
                 <DetailProduct id={product._id} />
                 <UpdateProduct id={product._id} />
                 <DeleteProduct id={product._id} />

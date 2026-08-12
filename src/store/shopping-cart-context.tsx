@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 import { createContext, useReducer } from "react";
-import { Product, CartItem, CartState, CartAction } from "./shoppingCartType";
-
-export const products: Product[] = [
-  { _id: "pro-1", name: "laptop", price: 25 },
-  { _id: "pro-2", name: "key board", price: 50 },
-];
+import { CartItem, CartState, CartAction } from "./shoppingCartType";
+import { products } from "@/lib/products/placeholderdata";
+// import { Product } from "@/lib/products/definitions";
+// export const products: Product[] = [
+//   { _id: "pro-1", name: "laptop", price: 25 },
+//   { _id: "pro-2", name: "key board", price: 50 },
+// ];
 
 type CartContextType = {
   cartItems: CartItem[];
@@ -43,7 +44,9 @@ function shoppingCartReducer(state: CartState, action: CartAction): CartState {
       const updatedItem = {
         ...existingCartItem,
         quantity: updatedQuantity,
-        totalPrice: updatedQuantity * existingCartItem.price,
+        totalPrice: Number(
+          (updatedQuantity * existingCartItem.price).toFixed(2),
+        ),
       };
 
       cartItems[existingCartItemIndex] = updatedItem;
@@ -63,7 +66,7 @@ function shoppingCartReducer(state: CartState, action: CartAction): CartState {
         name: product.name,
         price: product.price,
         quantity: newQuantity,
-        totalPrice: product.price * newQuantity,
+        totalPrice: Number((product.price * newQuantity).toFixed(2)),
       };
 
       cartItems.push(newCartItem);
@@ -93,7 +96,9 @@ function shoppingCartReducer(state: CartState, action: CartAction): CartState {
         const updatedItem: CartItem = {
           ...existingCartItem,
           quantity: updatedQuantity,
-          totalPrice: existingCartItem.price * updatedQuantity,
+          totalPrice: Number(
+            (existingCartItem.price * updatedQuantity).toFixed(2),
+          ),
         };
 
         cartItems[existingCartItemIndex] = updatedItem;

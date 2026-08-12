@@ -55,7 +55,7 @@ export default function Form() {
         <div className="mt-6 flex justify-end gap-4">
           <FormCancelLink href="/dashboard/orders">Cancel</FormCancelLink>
           <button type="submit" disabled={isPending}>
-            {isPending ? "Crreating .... " : "Create Order"}
+            {isPending ? "Creating .... " : "Create Order"}
           </button>
         </div>
 

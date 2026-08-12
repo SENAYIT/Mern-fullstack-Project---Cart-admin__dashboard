@@ -1,11 +1,12 @@
 import { State } from "@/lib/orders/definitions";
 import SpanStar from "@/ui/commonForAll/spanStar";
 
+import { customers } from "@/lib/customers/placeholder-data";
 export default function SelectCustomer({ state }: { state: State }) {
-  const customers = [
-    { _id: "cust-1", name: "John Smith" },
-    { _id: "cust-2", name: "Emma JohnSon" },
-  ];
+  // const customers = [
+  //   { _id: "cust-1", name: "John Smith" },
+  //   { _id: "cust-2", name: "Emma JohnSon" },
+  // ];
 
   return (
     <div className="mb-6">

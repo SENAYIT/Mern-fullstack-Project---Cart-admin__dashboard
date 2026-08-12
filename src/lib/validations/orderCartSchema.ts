@@ -14,9 +14,9 @@ import { z } from "zod";
 export const cartItemSchema = z.object({
   productId: z.string().trim().min(1),
   name: z.string().trim().min(1),
-  price: z.number().int().positive(),
+  price: z.number().positive(),
   quantity: z.number().int().positive(),
-  totalPrice: z.coerce.number().gt(0),
+  totalPrice: z.number().positive(),
 });
 
 export const orderCartSchema = z.object({
