@@ -35,7 +35,7 @@ export default async function TopProducts() {
                       className="mr-2 md:mr-4 rounded-full"
                       max-width={32}
                       max-height={32}
-                      loading="lazy"
+                      priority
                     />
                   ) : (
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">

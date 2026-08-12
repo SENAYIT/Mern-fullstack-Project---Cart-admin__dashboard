@@ -34,11 +34,11 @@ export default async function RecentCustomers() {
                   {customer.profile_photo ? (
                     <Image
                       src={customer.profile_photo}
-                      alt={`${customer.name}'s profile picture`}
+                      alt={`image`}
                       className="mr-4 rounded-full"
                       max-width={32}
                       max-height={32}
-                      loading="lazy"
+                      priority
                     />
                   ) : (
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100">
