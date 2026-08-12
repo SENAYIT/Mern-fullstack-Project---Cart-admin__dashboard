@@ -36,8 +36,8 @@ export default async function RecentCustomers() {
                       src={customer.profile_photo}
                       alt={`${customer.name}'s profile picture`}
                       className="mr-4 rounded-full"
-                      width={32}
-                      height={32}
+                      max-width={32}
+                      max-height={32}
                       loading="lazy"
                     />
                   ) : (

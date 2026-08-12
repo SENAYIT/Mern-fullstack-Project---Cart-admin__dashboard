@@ -31,7 +31,7 @@ export default async function TopProducts() {
                   {product.image ? (
                     <Image
                       src={product.image}
-                      alt={`${product.name}'s profile picture`}
+                      alt={`image`}
                       className="mr-2 md:mr-4 rounded-full"
                       max-width={32}
                       max-height={32}
