@@ -5,7 +5,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-001",
     name: "John Smith",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_1.png",
     email: "john.smith001@gmail.com",
     password: "123456",
     phoneNumber: "0912345001",
@@ -16,7 +16,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-002",
     name: "Emma Johnson",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_2.png",
     email: "emma.johnson002@gmail.com",
     password: "123456",
     phoneNumber: "0912345002",
@@ -27,7 +27,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-003",
     name: "Michael Brown",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_3.png",
     email: "michael.brown003@gmail.com",
     password: "123456",
     phoneNumber: "0912345003",
@@ -38,7 +38,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-004",
     name: "Sophia Davis",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_4.png",
     email: "sophia.davis004@gmail.com",
     password: "123456",
     phoneNumber: "0912345004",
@@ -49,7 +49,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-005",
     name: "James Wilson",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_5.png",
     email: "james.wilson005@gmail.com",
     password: "123456",
     phoneNumber: "0912345005",
@@ -60,7 +60,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-006",
     name: "Olivia Miller",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_6.png",
     email: "olivia.miller006@gmail.com",
     password: "123456",
     phoneNumber: "0912345006",
@@ -71,7 +71,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-007",
     name: "William Moore",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_6.png",
     email: "william.moore007@gmail.com",
     password: "123456",
     phoneNumber: "0912345007",
@@ -82,7 +82,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-008",
     name: "Ava Taylor",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_4.png",
     email: "ava.taylor008@gmail.com",
     password: "123456",
     phoneNumber: "0912345008",
@@ -93,7 +93,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-009",
     name: "Benjamin Anderson",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_4.png",
     email: "benjamin.anderson009@gmail.com",
     password: "123456",
     phoneNumber: "0912345009",
@@ -104,7 +104,7 @@ export const customers: Customer[] = [
   {
     _id: "cust-010",
     name: "Charlotte Thomas",
-    profile_photo: "/customers/laptop.jpg",
+    profile_photo: "/customers/cust_2.png",
     email: "charlotte.thomas010@gmail.com",
     password: "123456",
     phoneNumber: "0912345010",

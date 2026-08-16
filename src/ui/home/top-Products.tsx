@@ -33,8 +33,10 @@ export default async function TopProducts() {
                       src={product.image}
                       alt={`image`}
                       className="mr-2 md:mr-4 rounded-full"
-                      max-width={32}
-                      max-height={32}
+                      // max-width={32}
+                      // max-height={32}
+                      width={32}
+                      height={32}
                       priority
                     />
                   ) : (
