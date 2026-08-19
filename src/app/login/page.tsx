@@ -1,6 +1,7 @@
 import AdminLogo from "@/ui/commonForAll/admin-logo";
 import LoginForm from "@/ui/commonForAll/login-form";
 import { Suspense } from "react";
+import LoginCredentials from "./loginCredentials";
 
 export default function LoginPage() {
   return (
@@ -14,6 +15,7 @@ export default function LoginPage() {
         <Suspense>
           <LoginForm />
         </Suspense>
+        <LoginCredentials />
       </div>
     </main>
   );
