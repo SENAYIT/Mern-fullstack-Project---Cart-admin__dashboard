@@ -1,6 +1,6 @@
 export default function LoginCredentials() {
   return (
-    <div className="p-2">
+    <div>
       <p>
         <strong className="mr-1">Note:</strong>
         Use the below Credentials

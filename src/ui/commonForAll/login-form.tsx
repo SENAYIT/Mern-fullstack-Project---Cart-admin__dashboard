@@ -12,6 +12,7 @@ import { FormSubmitButton } from "./formButtons";
 import { useActionState } from "react";
 import { authenticate } from "@/lib/actions";
 import { useSearchParams } from "next/navigation";
+import LoginCredentials from "@/app/login/loginCredentials";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
@@ -85,6 +86,7 @@ export default function LoginForm() {
             </>
           )}
         </div>
+        <LoginCredentials />
       </div>
     </form>
   );
